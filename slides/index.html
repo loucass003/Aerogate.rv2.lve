@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Aerogate rv2</title>
+    <link href="css/effects.css" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/template.css" rel="stylesheet" />
+    <link href="css/styles/darkula.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class="impress-not-supported">
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
+            of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+    <div id="impress" data-transition-duration="1000">
+        
+        <div id="slide1" class="step slide" data-x="0">
+            <h1 class="title">Aerogate</h1>
+            <img src="img/Grille_tranparent.png" width="400" height="auto">
+            <p>Grille d'aération pour poêle a bois</p>
+        </div>
+
+        <div id="slide2" class="step slide" data-x="2000" data-y="0">
+            <h1 class="title">I. Problèmatique</h1>
+            <ul class="hide-past">
+                <p class="substep">
+                    Comment diminuer la consommation énergétique de chauffage de type poêle à bois, augmenter la sécurité et le confort des utilisateurs d'une habitation en modifiant une grille d’aération d'apport en air frais extérieure ?
+                </p>
+            </ul>
+        </div>
+
+        <div id="slide3" class="step slide" data-x="4000" data-y="0">
+            <h1 class="title">II. Exigences</h1>
+            <object
+                style="left: 50%; transform: translate(-40%, -15%); position: absolute;"
+                data="img/Exigence_short.svg"
+                type="image/svg+xml"
+                height="800px" 
+            ></object>
+        </div>
+
+        <div id="slide3_2"class="step" data-x="4000" data-z="650" data-y="-1000" data-rotate-x="-25">
+            <object
+                style="left: 50%; transform: translate(-40%, -50%) scale(1.3); position: absolute; background-color: white"
+                data="img/Exigence_short.svg"
+                type="image/svg+xml"
+                height="800px" 
+            ></object>
+        </div>
+
+        <div id="slide4" class="step slide" data-x="6000" data-y="0" data-z="0">
+            <h1 class="title">II. Cas d'utilisation</h1>
+            <object
+                style="left: 50%; transform: translate(-44%, 6%) scale(1.2); position: absolute;"
+                data="img/Utilisations.svg"
+                type="image/svg+xml"
+                height="800px" 
+            ></object>
+        </div>
+        
+
+        <div id="slide5" class="step slide" data-x="8000" data-y="0">
+            <h1 class="title">III. Solution retenue</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -10%) scale(0.8); position: absolute;"
+                src="img/System.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="slide5_2" class="step" data-x="8000" data-z="650" data-y="-1000" data-rotate-x="-25">
+            <img
+                style="left: 50%; transform: translate(-50%, -50%) scale(1.3); position: absolute;"
+                src="img/System.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="slide6" class="step slide" data-x="10000" data-z="0" data-y="0">
+            <h1 class="title">IV. Choix des Composants</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -10%) scale(0.8); position: absolute;"
+                src="img/capteurs.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="slide7" class="step slide" data-x="12000" data-z="0" data-y="0">
+            <h1 class="title">V. Modules</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -10%) scale(0.8); position: absolute;"
+                src="img/modules.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="chain" class="step slide" data-x="14000" data-z="0" data-y="0">
+            <h1 class="title">VI. Entrées/Sorties</h1>
+            <img
+                class="substep"
+                style="left: 50%; transform: translate(-50%, -30%) scale(0.25); position: absolute;"
+                src="img/recepteur.png"
+                height="800px" 
+            >
+            <img
+                class="substep"
+                style="left: 50%; transform: translate(-50%, -10%) scale(0.22); position: absolute;"
+                src="img/emetteur.png"
+                height="800px" 
+            >
+            <img
+                class="substep"
+                style="left: 50%; transform: translate(-50%, 15%) scale(0.27); position: absolute;"
+                src="img/raspberry.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="comunications" class="step slide" data-x="16000" data-z="0" data-y="0">
+            <h1 class="title">VII. Communications</h1>
+            <table class="numbers substep" style="margin: 0 auto;">
+                <tr>
+                    <th style="color: red">00</th>
+                    <th style="color: green">0000</th>
+                    <th style="color: blue">00000000...</th>
+                </tr>
+                <tr>
+                    <td style="color: red">ID</th>
+                    <td style="color: green">COMMANDE</th>
+                    <td style="color: blue">VALEUR</th>
+                </tr>
+            </table>
+            <div class="substep" style="text-align: center;">
+                <h3 class="exemple">Exemple :</h3>
+                <table class="numbers" style="margin: 0 auto;">
+                    <tr>
+                        <th style="color: red">01</th>
+                        <th style="color: green">0001</th>
+                        <th style="color: blue">10000010</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red">ID</th>
+                        <td style="color: green">COMMANDE</th>
+                        <td style="color: blue">VALEUR</th>
+                    </tr>
+                    <tr class="substep">
+                        <td>1</th>
+                        <td>Temperature</th>
+                        <td>130 °C</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="substep" style="text-align: center">
+                <h3 class="exemple">Norme :</h3>
+                <div style="display: flex; justify-content: center;">
+                    <table class="normal">
+                        <tr>
+                            <th>ID</th>
+                            <th>MODULE</th>
+                        </tr>
+                        <tr>
+                            <td>00</th>
+                            <td>Emeteur Poêle a bois</th>
+                        </tr>
+                        <tr>
+                            <td>01</th>
+                            <td>Emeteur a la grille</th>
+                        </tr>
+                        <tr>
+                            <td>10</th>
+                            <td>Emeteur au mur</th>
+                        </tr>
+                    </table>
+                    <table class="normal">
+                        <tr>
+                            <th>COMMANDE</th>
+                            <th>ACTION</th>
+                        </tr>
+                        <tr>
+                            <td>0000</th>
+                            <td>Ping (aucune valeur)</th>
+                        </tr>
+                        <tr>
+                            <td>0001</th>
+                            <td>Temperature</th>
+                        </tr>
+                        <tr>
+                            <td>0010</th>
+                            <td>Taux CO</th>
+                        </tr>
+                        <tr>
+                            <td>0011</th>
+                            <td>Taux Fumée</th>
+                        </tr>
+                        <tr>
+                            <td>0100</th>
+                            <td>Angle Clapet</th>
+                        </tr>
+                        <tr>
+                            <td>0101</th>
+                            <td>Vitesse Ventilateur</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="display" class="step slide" data-x="18000" data-z="0" data-y="0">
+            <h1 class="title">VIII. Web</h1>
+            TODO: Ajouter screenshots du panel  
+        </div>
+
+        <div id="programs" class="step slide" data-x="20000" data-z="0" data-y="0">
+            <h1 class="title">IX. Programmes</h1>
+            <p>Programme arduino(Simulation): emission et reception radio</p>
+            <pre class="overflow">
+            <code class="cpp">
+#include < VirtualWire.h >
+
+void setup()
+{
+    Serial.begin(9600);
+    Serial.println("setup");
+
+    vw_set_rx_pin(6);
+    vw_set_tx_pin(7);
+    vw_set_ptt_inverted(true);
+    vw_setup(128);
+    vw_rx_start(); 
+}
+
+void loop()
+{
+    uint8_t buf[VW_MAX_MESSAGE_LEN];
+    uint8_t buflen = VW_MAX_MESSAGE_LEN;
+    const uint8_t msg[] = { 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1 };
+
+    delay(200);
+    vw_send(msg, sizeof(msg));
+    Serial.println("Send");
+    vw_wait_tx();
+    
+    vw_wait_rx_max(1000);
+    delay(200);
+    if (vw_get_message(buf, &buflen))
+    {
+        Serial.print("Got: ");
+        
+        for (int i = 0; i < buflen; i++)
+        {
+            Serial.print(buf[i]);
+            Serial.print(" ");
+        }
+        Serial.println("");
+    }
+}
+            </code>
+            </pre>
+            <img
+                style="left: 60%; transform: translate(-5%, -10%) scale(0.8); position: absolute"
+                src="img/Arduino_algorigram.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="programs_2" class="step slide" data-x="22000" data-z="0" data-y="0">
+            <h1 class="title">VIII. Programmes</h1>
+            <p>Programme arduino(Simulation): emission et reception radio</p>
+        </div>
+
+        <div id="overview" class="step" data-x="9000" data-y="0" data-rotate-x="-50" data-scale="16" style="pointer-events:none;">
+
+    </div>
+
+    <div id="impress-toolbar"></div>
+    
+    <script type="text/javascript" src="js/impress.js"></script>
+    <script>
+        impress().init();
+    </script>
+<script type="text/javascript" src="/js/bundle.js"></script></body>
+
+</html>
