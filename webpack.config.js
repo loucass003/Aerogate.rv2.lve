@@ -1,71 +1,40 @@
-var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = {
-    context: path.resolve('./slides/'),
-    entry: './js/index.js',
-    output: {
-        path: path.resolve('./dist/'),
-        filename: 'js/bundle.js',
-        publicPath: '/'
-    },
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false,
-        //     },
-        //     output: {
-        //         comments: false,
-        //     },
-        // }),
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        }),
-        new BrowserSyncPlugin({
-            server: {
-                baseDir: ['dist']
-            },
-            port: 3000,
-            host: 'localhost'
-        }),
-        new CopyWebpackPlugin([{
-                context: '../vendor/impress/',
-                from: '**/*.js',
-                to: 'js/',
-                flatten: true
-            },
-            {
-                context: '../vendor/impress/css',
-                from: '**/*.css',
-                to: 'css/',
-                flatten: true
-            },
-            {
-                context: '../vendor/impress/extras/',
-                from: '*/*.css',
-                to: 'js/',
-                flatten: true
-            },
-            {
-                context: '../vendor/impress/extras/highlight/styles',
-                from: '**/*.css',
-                to: 'css/styles/'
-            },
-            {
-                context: 'css/',
-                from: '**/*',
-                to: 'css/'
-            },
-            {
-                context: 'img/',
-                from: '**/*',
-                to: 'img/'
-            }
-        ])
-    ]
+var devFlag = new webpack.DefinePlugin({
+	__DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true'))
+});
+
+var config = {
+	entry: {
+		app: ['./src/index.js']
+	},
+	devServer: {
+		port: 3001
+	},
+	output: {
+		path: './build',
+		publicPath: '/build/',
+		filename: 'bundle.js'
+	},
+	plugins: [devFlag],
+	module: {
+		loaders: [{
+			test: /\.scss$/,
+			loaders: [
+				"style-loader",
+				"css-loader",
+				"autoprefixer-loader?browsers=last 2 version",
+				"sass-loader"
+			]
+		}, {
+			test: /\.css$/,
+			loaders: [
+				"style-loader",
+				"css-loader",
+				"autoprefixer-loader?browsers=last 2 version"
+			]
+		}]
+	}
 };
+
+module.exports = config;

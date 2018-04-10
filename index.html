@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Aerogate rv2</title>
+    <link href="css/effects.css" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/template.css" rel="stylesheet" />
+    <link href="css/styles/darkula.css" rel="stylesheet" />
+    <script type="text/javascript" src="lib/highlight.pack.js"></script>
+    <script>
+        var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+            };
+        
+            function escapeHtml(string) {
+            return String(string).replace(/[&<>"'\/]/g, function (s) {
+                return entityMap[s];
+            });
+        }
+        
+        //document.addEventListener("DOMContentLoaded", init, false);
+
+        window.onload = function init() 
+        {
+            var codeblock = document.querySelectorAll("pre .html");
+                    
+            if(codeblock.length) 
+            {
+                for(var i=0, len=codeblock.length; i<len; i++) 
+                {
+                    var dom = codeblock[i];
+                    var html = dom.innerHTML;
+                    html = escapeHtml(html);
+                    dom.innerHTML = html;
+                }
+            }
+        }
+    hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class="impress-not-supported">
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
+            of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+    <div id="impress" data-transition-duration="1000">
+        
+        <div id="start" class="step slide" data-x="0">
+            <h1 class="title">Aerogate</h1>
+            <img src="img/Grille_tranparent.png" width="500" height="auto">
+            <p>Grille d'aération autogérée pour poêle a bois</p>
+        </div>
+
+        <div id="problem" class="step slide" data-x="2000" data-y="0">
+            <h1 class="title">Problèmatique</h1>
+            <ul class="hide-past">
+                <p class="substep">
+                    Comment diminuer la consommation énergétique de chauffage de type poêle à bois, augmenter la sécurité et le confort des utilisateurs d'une habitation en modifiant une grille d’aération d'apport en air frais extérieure ?
+                </p>
+            </ul>
+        </div>
+
+        <div id="exigences" class="step slide" data-x="4000" data-y="0">
+            <h1 class="title">Exigences</h1>
+            <object
+                style="left: 50%; transform: translate(-40%, -15%); position: absolute;"
+                data="img/Exigence_short.svg"
+                type="image/svg+xml"
+                height="800px" 
+            ></object>
+        </div>
+
+        <div id="solution" class="step slide" data-x="6000" data-y="0">
+            <h1 class="title">Solution retenue</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -16%) scale(0.7); position: absolute;"
+                src="img/System.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="solution_big" class="step" data-x="6000" data-z="650" data-y="-1000" data-rotate-x="-25">
+            <img
+                style="left: 50%; transform: translate(-50%, -50%) scale(1.3); position: absolute;"
+                src="img/System.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="composants" class="step slide" data-x="8000" data-z="0" data-y="0">
+            <h1 class="title">Choix des Composants</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -16%) scale(0.7); position: absolute;"
+                src="img/capteurs.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="modules" class="step slide" data-x="10000" data-z="0" data-y="0">
+            <h1 class="title">Modules</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -16.5%) scale(0.8); position: absolute;"
+                src="img/modules.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="chain" class="step slide" data-x="12000" data-z="0" data-y="0">
+            <h1 class="title">Entrées/Sorties</h1>
+            <img
+                class=""
+                style="left: 50%; transform: translate(-50%, -40%) scale(0.25); position: absolute;"
+                src="img/recepteur.png"
+                height="800px" 
+            >
+            <img
+                class=""
+                style="left: 50%; transform: translate(-50%, -20%) scale(0.22); position: absolute;"
+                src="img/emetteur.png"
+                height="800px" 
+            >
+            <img
+                class=""
+                style="left: 50%; transform: translate(-50%, 5%) scale(0.27); position: absolute;"
+                src="img/raspberry.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="comunications" class="step slide" data-x="14000" data-z="0" data-y="0">
+            <h1 class="title">Communications</h1>
+            <table class="numbers substep" style="margin: 0 auto;">
+                <tr>
+                    <th style="color: red">00</th>
+                    <th style="color: green">0000</th>
+                    <th style="color: blue">00000000...</th>
+                </tr>
+                <tr>
+                    <td style="color: red">ID</th>
+                    <td style="color: green">COMMANDE</th>
+                    <td style="color: blue">VALEUR</th>
+                </tr>
+            </table>
+            <div class="substep" style="text-align: center;">
+                <h3 class="exemple">Exemple :</h3>
+                <table class="numbers" style="margin: 0 auto;">
+                    <tr>
+                        <th style="color: red">01</th>
+                        <th style="color: green">0001</th>
+                        <th style="color: blue">10000010</th>
+                    </tr>
+                    <tr>
+                        <td style="color: red">ID</th>
+                        <td style="color: green">COMMANDE</th>
+                        <td style="color: blue">VALEUR</th>
+                    </tr>
+                    <tr class="substep">
+                        <td>1</th>
+                        <td>Temperature</th>
+                        <td>130 °C</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="substep" style="text-align: center">
+                <h3 class="exemple">Norme :</h3>
+                <div style="display: flex; justify-content: center;">
+                    <table class="normal">
+                        <tr>
+                            <th>ID</th>
+                            <th>MODULE</th>
+                        </tr>
+                        <tr>
+                            <td>00</th>
+                            <td>Emeteur a la grille</th>
+                        </tr>
+                        <tr>
+                            <td>01</th>
+                            <td>Emeteur Poêle a bois</th>
+                        </tr>
+                        <tr>
+                            <td>10</th>
+                            <td>Emeteur au mur</th>
+                        </tr>
+                    </table>
+                    <table class="normal">
+                        <tr>
+                            <th>COMMANDE</th>
+                            <th>ACTION</th>
+                        </tr>
+                        <tr>
+                            <td>0000</th>
+                            <td>Ping (aucune valeur)</th>
+                        </tr>
+                        <tr>
+                            <td>0001</th>
+                            <td>Temperature</th>
+                        </tr>
+                        <tr>
+                            <td>0010</th>
+                            <td>Taux CO</th>
+                        </tr>
+                        <tr>
+                            <td>0011</th>
+                            <td>Taux Fumée</th>
+                        </tr>
+                        <tr>
+                            <td>0100</th>
+                            <td>Angle Clapet</th>
+                        </tr>
+                        <tr>
+                            <td>0101</th>
+                            <td>Vitesse Ventilateur</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="cablage" class="step slide" data-x="16000" data-z="0" data-y="0">
+            <h1 class="title">Schéma de câblage</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -10.5%) scale(0.7); position: absolute;"
+                src="img/Radio_fritzing.svg"
+                height="800px" 
+            >
+        </div>
+
+        <div id="cablage_1" class="step slide" data-x="16000" data-z="650" data-y="-900" data-rotate-x="-25">
+            <h1 class="title">Câblage</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -10.5%) scale(0.8); position: absolute;"
+                src="img/Radio_real.JPG"
+                height="800px"
+            >
+        </div>
+
+        <div id="web" class="step slide" data-x="18000" data-z="0" data-y="0">
+            <h1 class="title">Web</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -20.5%) scale(0.6); position: absolute;"
+                src="img/Network.png"
+                height="800px"
+            >
+        </div>
+
+        <div id="web_1" class="step slide" data-x="18000" data-z="650" data-y="-900" data-rotate-x="-25">
+            <h1 class="title">Web</h1>
+            <iframe src="http://localhost:8080" height="600px" width="100%">
+
+            </iframe>
+        </div>
+
+        <div id="web_2" class="step slide" data-x="18000" data-z="1200" data-y="-2000" data-rotate-x="-25">
+            <h1 class="title">Web Raspberry Pi</h1>
+            <img
+                style="left: 50%; transform: translate(-50%, -15.5%) scale(0.7); position: absolute;"
+                src="img/Afficheur.JPG"
+                height="800px"
+            >
+        </div>
+
+        <div id="programs" class="step slide" data-x="20000" data-z="0" data-y="0">
+            <h1 class="title">Programmes</h1>
+            <p>Programme arduino(Simulation): emission et reception radio</p>
+            <pre class="overflow">
+            <code class="cpp">
+#include < VirtualWire.h >
+
+void setup()
+{
+    Serial.begin(9600);
+    Serial.println("setup");
+
+    vw_set_rx_pin(6);
+    vw_set_tx_pin(7);
+    vw_set_ptt_inverted(true);
+    vw_setup(128);
+    vw_rx_start(); 
+}
+
+void loop()
+{
+    uint8_t buf[VW_MAX_MESSAGE_LEN];
+    uint8_t buflen = VW_MAX_MESSAGE_LEN;
+    const uint8_t msg[] = { 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1 };
+
+    delay(200);
+    vw_send(msg, sizeof(msg));
+    Serial.println("Send");
+    vw_wait_tx();
+    
+    vw_wait_rx_max(1000);
+    delay(200);
+    if (vw_get_message(buf, &buflen))
+    {
+        Serial.print("Got: ");
+        
+        for (int i = 0; i < buflen; i++)
+        {
+            Serial.print(buf[i]);
+            Serial.print(" ");
+        }
+        Serial.println("");
+    }
+}
+            </code>
+            </pre>
+            <img
+                style="left: 60%; transform: translate(-5%, -10%) scale(0.8); position: absolute"
+                src="img/Arduino_algorigram.png"
+                height="800px" 
+            >
+        </div>
+
+        <div id="programs_2" class="step slide" data-x="22000" data-z="0" data-y="0">
+            <h1 class="title">Programmes</h1>
+            <p>Programme Web: Serveur</p>
+            <pre class="overflow">
+                <code class="javascript">
+import http from 'http';
+import SocketIO from 'socket.io';
+import wpa_cli from 'wireless-tools/wpa_cli'
+import { connectTo, check } from './wifi_tools';
+
+const server = http.Server();
+const io = new SocketIO(server);
+const port = process.env.PORT || 3000;
+const wlinterface = process.env.INTERFACE || 'wlp7s0';
+
+let inter = 20;
+let ext = 9;
+
+
+io.on('connection', (socket) => {
+    console.log(`Connected ${socket.id}`);
+
+    socket.on('refresh_networks', () => {
+        wpa_cli.scan(wlinterface, () => {
+            wpa_cli.scan_results(wlinterface, (err, data) => {
+                wpa_cli.status(wlinterface, function(err, status) {
+                    console.dir(status);
+                    data.filter(({ bssid }) => bssid == status.bssid)
+                        .map(n => n.connected = true);
+                    socket.emit("wifi_list", { data });
+                });
+            });
+        });
+    });
+
+    socket.on('choose_network', (ssid, password) => {
+        console.log("TRY TO CONNECT !", ssid, password);
+        connectTo({ssid, password}, (err) => {
+            if (!err)
+                check(ssid, (err, { connected }) => {
+                    const output = !err && connected 
+                    ? { connected } 
+                    : { error: 'Failed to connect. Verify password' };
+                    console.log(output);
+                    socket.emit(
+                        'connect_output', 
+                        output);
+                });
+            else socket.emit('connect_output', { error : `Unable to create the network ${ssid}` });
+        });
+    });
+});
+
+function random(min, max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+server.listen(port, () => {
+    console.log('[INFO] Listening on *:' + port);
+    console.log('start ticker');
+
+    setInterval(() => { //TODO: export ticker
+        inter += inter > 19 ? random(-1, 1) * 1 : 0; 
+        ext += ext > 3 ? random(-1, 1) * 1 : 1;
+        io.emit("temperatures", { inter, ext });
+    }, 500);
+});
+
+export { wlinterface, io };
+                </code>
+            </pre>
+        </div>
+
+        <div id="programs_3" class="step slide" data-x="24000" data-z="0" data-y="0">
+            <h1 class="title">Programmes</h1>
+            <p>Programme Web: Page Home</p>
+            <pre class="overflow">
+                <code class="html">
+<vtemplate>
+    <v-container fluid grid-list-md>
+        <draggable :options="{ group: 'components' }" @start="drag=true" @end="drag=false" class="layout wrap">
+            <temperature
+            name="int."
+            :value="inter"
+            icon="home"
+            color="grey"
+            text-class="white--text"
+            icon-color="white"
+            ></temperature>
+            <temperature
+            name="ext."
+            :value="ext"
+            icon="wb_sunny"
+            color="blue"
+            text-class="white--text"
+            icon-color="yellow"
+            ></temperature>
+        </draggable>
+    </v-container>
+</vtemplate>
+
+<script>
+import draggable from 'vuedraggable'
+import Temperature from "./Temperature";
+
+export default {
+    components: { Temperature, draggable },
+    name: 'home',
+    data() {
+        return {
+            inter: 20,
+            ext: 9,
+            myvar: "Home"
+        }
+    },
+    sockets:{
+    temperatures({inter, ext})  { 
+        console.log(ext, inter);
+        return Object.assign(this, { inter, ext })
+    }
+    },
+    methods: {
+    random(min, max) {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+    }
+}
+</script>        
+                </code>
+            </pre>
+        </div>
+
+        <div id="programs_4" class="step slide" data-x="26000" data-z="0" data-y="0">
+                <h1 class="title">Programmes</h1>
+                <p>Programme Web: Composant temperature</p>
+                <pre class="overflow">
+                    <code class="html">
+<vtemplate>
+<v-flex xs12 sm6>
+    <v-card>
+    <v-card-media
+        :class="temperatureStyle"
+        height="200px"
+    >
+        <v-container fill-height fluid>
+        <v-layout fill-height>
+            <v-flex xs6>
+            <span class="headline">Temperature {{ name }}</span>
+            <h1 style="font-size: 5vw">{{ value }} °C</h1>
+            </v-flex>
+            <v-flex xs6>
+            <v-icon
+                id="sun"
+                style="font-size: 10vw; text-align: center; height: 100%; width: 100%"
+                :color="iconColor">{{ icon }}</v-icon>
+
+            </v-flex>
+            <v-menu bottom left>
+            <v-btn icon slot="activator" dark>
+                <v-icon>more_vert</v-icon>
+            </v-btn>
+            <v-list>
+                <v-list-tile>
+                <v-list-tile-title>test</v-list-tile-title>
+                </v-list-tile>
+            </v-list>
+            </v-menu>
+        </v-layout>
+        </v-container>
+    </v-card-media>
+    </v-card>
+</v-flex>
+</vtemplate>
+
+<script>
+export default {
+    name: 'Temperature',
+    props: {
+        name: String,
+        value: Number,
+        color: String,
+        icon: String,
+        textClass: String,
+        iconColor: String
+    },
+    data() {
+        return {
+            temperatureStyle: [ this.color, this.textClass ]
+        }
+    }
+}
+</script>
+                    </code>
+                </pre>
+        </div>
+
+        <div id="programs_5" class="step slide" data-x="28000" data-z="0" data-y="0">
+                <h1 class="title">Programmes</h1>
+                <p>Programme Web: Page settings</p>
+                <pre class="overflow">
+                    <code class="html">
+<vtemplate>
+<v-container fluid grid-list-md>
+    <v-layout wrap>
+    <v-flex xs-12>
+        <v-expansion-panel>
+        <v-expansion-panel-content value="true">
+            <div slot="header">
+            Wireless Networks
+            <v-btn icon @click.stop="refreshNetworks()" :disabled="networksRequest">
+                <v-icon>refresh</v-icon>
+            </v-btn>
+            </div>
+            <v-card>
+            <v-data-table
+                :headers="networks_header"
+                :items="networks"
+                hide-actions
+                class="elevation-1"
+                :loading="networksRequest"
+            >
+                <template slot="items" slot-scope="props">
+                <td>{{ props.item.ssid || '(No SSID)' }}</td>
+                <td>{{ props.item.flags }}</td>
+                <td>
+                    <v-btn icon @click.stop="{ dialog.open = true; dialog.item = props.item }" :disabled="props.item.connected">
+                    <v-icon v-html="props.item.connected ? 'done' : 'network_wifi'"></v-icon>
+                    </v-btn>
+                </td>
+                </template>
+            </v-data-table>
+            </v-card>
+        </v-expansion-panel-content>
+        </v-expansion-panel>
+    </v-flex>
+    </v-layout>
+    <v-dialog v-model="dialog.open" max-width="500px">
+    <v-card>
+        <v-card-title>
+        Wireless Network "{{ dialog.item.ssid }}"
+        </v-card-title>
+        <v-card-text>
+        <v-text-field 
+            v-model="dialog.pass"
+            label="Password"
+        ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+        <v-btn color="primary" flat @click.stop="chooseWireless()">Save</v-btn>
+        <v-btn color="primary" flat @click.stop="dialog.open = false">Close</v-btn>
+        </v-card-actions>
+    </v-card>
+    </v-dialog>
+</v-container>
+</vtemplate>
+
+<script>
+
+export default {
+    name: 'settings',
+    data() {
+    return {
+        networks_header: [
+        { text: 'SSID', value: 'ssid'},
+        { text: 'FLAGS', value: 'flags'},
+        { text: 'Action', value: 'connected', width: "10px"}
+        ],
+        networksRequest: false,
+        networks: [],
+        dialog: {
+        open: false,
+        item: {},
+        pass: '',
+        rules: {}
+        },
+    }
+    },
+    sockets: {
+    wifi_list({ data }) {
+        this.networks = data;  
+        this.networksRequest = false;
+        console.log(this.networks);
+    },
+    connect_output({ error, connected }) {
+        console.log(error, connected)
+        this.dialog.rules.pass = error || '';
+        this.dialog = !this.connected;
+    }
+    },
+    created() {
+    this.refreshNetworks();
+    },
+    methods: {
+    refreshNetworks() {
+        this.networksRequest = true;
+        this.$socket.emit('refresh_networks')
+    },
+    chooseWireless() {
+        this.$socket.emit('choose_network', this.dialog.item.ssid, this.dialog.pass);
+    }
+    }
+}
+</script>         
+                    </code>
+                </pre>
+        </div>
+
+        <div id="end" class="step slide" data-x="14000" data-z="3000" data-y="5000">
+                <h1 class="title">FIN</h1>
+        </div>
+
+        <div id="overview" class="step" data-x="14000" data-y="0" data-rotate-x="-50" data-scale="24" style="pointer-events:none;"></div>
+
+</div>
+
+    <div id="impress-toolbar"></div>
+    
+    <script type="text/javascript" src="lib/impress.js"></script>
+    <script>
+       
+        impress().init();
+    </script>
+</body>
+
+</html>
