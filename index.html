@@ -7,82 +7,63 @@
     <link href="css/effects.css" rel="stylesheet" />
     <link href="css/impress-demo.css" rel="stylesheet" />
     <link href="css/template.css" rel="stylesheet" />
-    <link href="css/styles/darkula.css" rel="stylesheet" />
+    <link href="css/styles/atom-one-dark.css" rel="stylesheet" />
     <script type="text/javascript" src="lib/highlight.pack.js"></script>
     <script>
-        var entityMap = {
+        const entityMap = {
             "&": "&amp;",
             "<": "&lt;",
             ">": "&gt;",
             '"': '&quot;',
-            "'": '&#39;',
-            "/": '&#x2F;'
-            };
-        
-            function escapeHtml(string) {
-            return String(string).replace(/[&<>"'\/]/g, function (s) {
-                return entityMap[s];
-            });
-        }
-        
-        //document.addEventListener("DOMContentLoaded", init, false);
+            "'": '&#39;'
+        };
 
-        window.onload = function init() 
-        {
-            var codeblock = document.querySelectorAll("pre .html");
-                    
-            if(codeblock.length) 
-            {
-                for(var i=0, len=codeblock.length; i<len; i++) 
-                {
-                    var dom = codeblock[i];
-                    var html = dom.innerHTML;
-                    html = escapeHtml(html);
-                    dom.innerHTML = html;
-                }
+        const escapeHTML = s => s.replace(/[&<>"']/g, s => entityMap[s]);
+
+        window.onload = () => {
+            for (const elem of document.querySelectorAll("pre .html")) {
+                elem.innerHTML = escapeHTML(elem.innerHTML)
+                hljs.highlightBlock(elem);
             }
         }
-    hljs.initHighlightingOnLoad();</script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <body class="impress-not-supported">
+    <div id="particles-js"></div>
     <div class="fallback-message">
         <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
             of this presentation.</p>
         <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
     <div id="impress" data-transition-duration="1000">
-        
+     
         <div id="start" class="step slide" data-x="0">
             <h1 class="title">Aerogate</h1>
             <img src="img/Grille_tranparent.png" width="500" height="auto">
-            <p>Grille d'aération autogérée pour poêle a bois</p>
+            <p>Self-managed aeration grid for wood stove</p>
         </div>
 
         <div id="problem" class="step slide" data-x="2000" data-y="0">
-            <h1 class="title">Problèmatique</h1>
+            <h1 class="title">Problematic</h1>
             <ul class="hide-past">
                 <p class="substep">
-                    Comment diminuer la consommation énergétique de chauffage de type poêle à bois, augmenter la sécurité et le confort des utilisateurs d'une habitation en modifiant une grille d’aération d'apport en air frais extérieure ?
+                    How to reduce the energy consumption of a wood stove and increase safety and comfort at home by modifying a ventilation grid?
                 </p>
             </ul>
         </div>
 
         <div id="exigences" class="step slide" data-x="4000" data-y="0">
-            <h1 class="title">Exigences</h1>
-            <object
-                style="left: 50%; transform: translate(-40%, -15%); position: absolute;"
-                data="img/Exigence_short.svg"
-                type="image/svg+xml"
-                height="800px" 
-            ></object>
+            <h1 class="title">Requirement diagram</h1>
+            <div id="Anim_exigences"></div>
         </div>
 
         <div id="solution" class="step slide" data-x="6000" data-y="0">
-            <h1 class="title">Solution retenue</h1>
+            <h1 class="title">Solution</h1>
             <img
                 style="left: 50%; transform: translate(-50%, -16%) scale(0.7); position: absolute;"
-                src="img/System.png"
+                src="img/System.jpg"
                 height="800px" 
             >
         </div>
@@ -90,14 +71,15 @@
         <div id="solution_big" class="step" data-x="6000" data-z="650" data-y="-1000" data-rotate-x="-25">
             <img
                 style="left: 50%; transform: translate(-50%, -50%) scale(1.3); position: absolute;"
-                src="img/System.png"
+                src="img/System.jpg"
                 height="800px" 
             >
         </div>
 
         <div id="composants" class="step slide" data-x="8000" data-z="0" data-y="0">
-            <h1 class="title">Choix des Composants</h1>
+            <h1 class="title">Components</h1>
             <img
+                class="substep"
                 style="left: 50%; transform: translate(-50%, -16%) scale(0.7); position: absolute;"
                 src="img/capteurs.png"
                 height="800px" 
@@ -107,6 +89,7 @@
         <div id="modules" class="step slide" data-x="10000" data-z="0" data-y="0">
             <h1 class="title">Modules</h1>
             <img
+                class="substep"
                 style="left: 50%; transform: translate(-50%, -16.5%) scale(0.8); position: absolute;"
                 src="img/modules.png"
                 height="800px" 
@@ -114,23 +97,23 @@
         </div>
 
         <div id="chain" class="step slide" data-x="12000" data-z="0" data-y="0">
-            <h1 class="title">Entrées/Sorties</h1>
+            <h1 class="title">Input / Output</h1>
             <img
-                class=""
+                class="substep"
                 style="left: 50%; transform: translate(-50%, -40%) scale(0.25); position: absolute;"
-                src="img/recepteur.png"
+                src="img/Receiver.png"
                 height="800px" 
             >
             <img
-                class=""
-                style="left: 50%; transform: translate(-50%, -20%) scale(0.22); position: absolute;"
-                src="img/emetteur.png"
+                class="substep"
+                style="left: 50%; transform: translate(-50%, -16%) scale(0.25); position: absolute;"
+                src="img/Emitter.png"
                 height="800px" 
             >
             <img
-                class=""
-                style="left: 50%; transform: translate(-50%, 5%) scale(0.27); position: absolute;"
-                src="img/raspberry.png"
+                class="substep"
+                style="left: 50%; transform: translate(-50%, 12%) scale(0.25); position: absolute;"
+                src="img/Raspberry.png"
                 height="800px" 
             >
         </div>
@@ -145,12 +128,12 @@
                 </tr>
                 <tr>
                     <td style="color: red">ID</th>
-                    <td style="color: green">COMMANDE</th>
-                    <td style="color: blue">VALEUR</th>
+                    <td style="color: green">ORDER</th>
+                    <td style="color: blue">VALUE</th>
                 </tr>
             </table>
             <div class="substep" style="text-align: center;">
-                <h3 class="exemple">Exemple :</h3>
+                <h3 class="exemple">Example :</h3>
                 <table class="numbers" style="margin: 0 auto;">
                     <tr>
                         <th style="color: red">01</th>
@@ -159,8 +142,8 @@
                     </tr>
                     <tr>
                         <td style="color: red">ID</th>
-                        <td style="color: green">COMMANDE</th>
-                        <td style="color: blue">VALEUR</th>
+                        <td style="color: green">ORDER</th>
+                        <td style="color: blue">VALUE</th>
                     </tr>
                     <tr class="substep">
                         <td>1</th>
@@ -170,7 +153,7 @@
                 </table>
             </div>
             <div class="substep" style="text-align: center">
-                <h3 class="exemple">Norme :</h3>
+                <h3 class="exemple">Standard :</h3>
                 <div style="display: flex; justify-content: center;">
                     <table class="normal">
                         <tr>
@@ -179,25 +162,25 @@
                         </tr>
                         <tr>
                             <td>00</th>
-                            <td>Emeteur a la grille</th>
+                            <td>grid emitter</th>
                         </tr>
                         <tr>
                             <td>01</th>
-                            <td>Emeteur Poêle a bois</th>
+                            <td>stove emitter</th>
                         </tr>
                         <tr>
                             <td>10</th>
-                            <td>Emeteur au mur</th>
+                            <td>wall emitter</th>
                         </tr>
                     </table>
                     <table class="normal">
                         <tr>
-                            <th>COMMANDE</th>
+                            <th>ORDER</th>
                             <th>ACTION</th>
                         </tr>
                         <tr>
                             <td>0000</th>
-                            <td>Ping (aucune valeur)</th>
+                            <td>Ping (no value)</th>
                         </tr>
                         <tr>
                             <td>0001</th>
@@ -205,19 +188,19 @@
                         </tr>
                         <tr>
                             <td>0010</th>
-                            <td>Taux CO</th>
+                            <td>CO rate</th>
                         </tr>
                         <tr>
                             <td>0011</th>
-                            <td>Taux Fumée</th>
+                            <td>Smoke rate</th>
                         </tr>
                         <tr>
                             <td>0100</th>
-                            <td>Angle Clapet</th>
+                            <td>Valve angle</th>
                         </tr>
                         <tr>
                             <td>0101</th>
-                            <td>Vitesse Ventilateur</th>
+                            <td>Fan speed</th>
                         </tr>
                     </table>
                 </div>
@@ -225,16 +208,16 @@
         </div>
 
         <div id="cablage" class="step slide" data-x="16000" data-z="0" data-y="0">
-            <h1 class="title">Schéma de câblage</h1>
-            <img
-                style="left: 50%; transform: translate(-50%, -10.5%) scale(0.7); position: absolute;"
-                src="img/Radio_fritzing.svg"
-                height="800px" 
+            <h1 class="title">Wiring diagram</h1>
+            <div 
+                style="left: 50%; transform: translate(-50%, 25%) scale(1.6); position: absolute;"
+                id="Radio_fritzing"
             >
+            </div>
         </div>
 
         <div id="cablage_1" class="step slide" data-x="16000" data-z="650" data-y="-900" data-rotate-x="-25">
-            <h1 class="title">Câblage</h1>
+            <h1 class="title">Wiring</h1>
             <img
                 style="left: 50%; transform: translate(-50%, -10.5%) scale(0.8); position: absolute;"
                 src="img/Radio_real.JPG"
@@ -268,8 +251,8 @@
         </div>
 
         <div id="programs" class="step slide" data-x="20000" data-z="0" data-y="0">
-            <h1 class="title">Programmes</h1>
-            <p>Programme arduino(Simulation): emission et reception radio</p>
+            <h1 class="title">Programs</h1>
+            <p>arduino Program ( Simulation ): Radio Receiver/emitter</p>
             <pre class="overflow">
             <code class="cpp">
 #include < VirtualWire.h >
@@ -315,14 +298,14 @@ void loop()
             </pre>
             <img
                 style="left: 60%; transform: translate(-5%, -10%) scale(0.8); position: absolute"
-                src="img/Arduino_algorigram.png"
+                src="img/LVE_Arduino_algorigram.png"
                 height="800px" 
             >
         </div>
 
         <div id="programs_2" class="step slide" data-x="22000" data-z="0" data-y="0">
-            <h1 class="title">Programmes</h1>
-            <p>Programme Web: Serveur</p>
+            <h1 class="title">Programs</h1>
+            <p>Web: Server</p>
             <pre class="overflow">
                 <code class="javascript">
 import http from 'http';
@@ -394,8 +377,8 @@ export { wlinterface, io };
         </div>
 
         <div id="programs_3" class="step slide" data-x="24000" data-z="0" data-y="0">
-            <h1 class="title">Programmes</h1>
-            <p>Programme Web: Page Home</p>
+            <h1 class="title">Programs</h1>
+            <p>Web: Home Page</p>
             <pre class="overflow">
                 <code class="html">
 <vtemplate>
@@ -421,7 +404,7 @@ export { wlinterface, io };
     </v-container>
 </vtemplate>
 
-<script>
+<script type="tex/template">
 import draggable from 'vuedraggable'
 import Temperature from "./Temperature";
 
@@ -436,15 +419,15 @@ export default {
         }
     },
     sockets:{
-    temperatures({inter, ext})  { 
-        console.log(ext, inter);
-        return Object.assign(this, { inter, ext })
-    }
+        temperatures({inter, ext})  { 
+            console.log(ext, inter);
+            return Object.assign(this, { inter, ext })
+        }
     },
     methods: {
-    random(min, max) {
-        return Math.floor(Math.random()*(max-min+1)+min);
-    }
+        random(min, max) {
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
     }
 }
 </script>        
@@ -453,8 +436,8 @@ export default {
         </div>
 
         <div id="programs_4" class="step slide" data-x="26000" data-z="0" data-y="0">
-                <h1 class="title">Programmes</h1>
-                <p>Programme Web: Composant temperature</p>
+                <h1 class="title">Programs</h1>
+                <p>Web: temperature component</p>
                 <pre class="overflow">
                     <code class="html">
 <vtemplate>
@@ -494,7 +477,7 @@ export default {
 </v-flex>
 </vtemplate>
 
-<script>
+<script type="tex/template">
 export default {
     name: 'Temperature',
     props: {
@@ -517,8 +500,8 @@ export default {
         </div>
 
         <div id="programs_5" class="step slide" data-x="28000" data-z="0" data-y="0">
-                <h1 class="title">Programmes</h1>
-                <p>Programme Web: Page settings</p>
+                <h1 class="title">Programs</h1>
+                <p>Web: Settings page</p>
                 <pre class="overflow">
                     <code class="html">
 <vtemplate>
@@ -576,50 +559,50 @@ export default {
 </v-container>
 </vtemplate>
 
-<script>
+<script type="tex/template">
 
 export default {
     name: 'settings',
     data() {
-    return {
-        networks_header: [
-        { text: 'SSID', value: 'ssid'},
-        { text: 'FLAGS', value: 'flags'},
-        { text: 'Action', value: 'connected', width: "10px"}
-        ],
-        networksRequest: false,
-        networks: [],
-        dialog: {
-        open: false,
-        item: {},
-        pass: '',
-        rules: {}
-        },
-    }
+        return {
+            networks_header: [
+                { text: 'SSID', value: 'ssid'},
+                { text: 'FLAGS', value: 'flags'},
+                { text: 'Action', value: 'connected', width: "10px"}
+            ],
+            networksRequest: false,
+            networks: [],
+            dialog: {
+                open: false,
+                item: {},
+                pass: '',
+                rules: {}
+            },
+        }
     },
     sockets: {
-    wifi_list({ data }) {
-        this.networks = data;  
-        this.networksRequest = false;
-        console.log(this.networks);
-    },
-    connect_output({ error, connected }) {
-        console.log(error, connected)
-        this.dialog.rules.pass = error || '';
-        this.dialog = !this.connected;
-    }
+        wifi_list({ data }) {
+            this.networks = data;  
+            this.networksRequest = false;
+            console.log(this.networks);
+        },
+        connect_output({ error, connected }) {
+            console.log(error, connected)
+            this.dialog.rules.pass = error || '';
+            this.dialog = !this.connected;
+        }
     },
     created() {
-    this.refreshNetworks();
+        this.refreshNetworks();
     },
     methods: {
-    refreshNetworks() {
-        this.networksRequest = true;
-        this.$socket.emit('refresh_networks')
-    },
-    chooseWireless() {
-        this.$socket.emit('choose_network', this.dialog.item.ssid, this.dialog.pass);
-    }
+        refreshNetworks() {
+            this.networksRequest = true;
+            this.$socket.emit('refresh_networks')
+        },
+        chooseWireless() {
+            this.$socket.emit('choose_network', this.dialog.item.ssid, this.dialog.pass);
+        }
     }
 }
 </script>         
@@ -628,7 +611,7 @@ export default {
         </div>
 
         <div id="end" class="step slide" data-x="14000" data-z="3000" data-y="5000">
-                <h1 class="title">FIN</h1>
+                <h1 class="title">END</h1>
         </div>
 
         <div id="overview" class="step" data-x="14000" data-y="0" data-rotate-x="-50" data-scale="24" style="pointer-events:none;"></div>
@@ -636,12 +619,7 @@ export default {
 </div>
 
     <div id="impress-toolbar"></div>
-    
-    <script type="text/javascript" src="lib/impress.js"></script>
-    <script>
-       
-        impress().init();
-    </script>
+    <script type="text/javascript" src="/build/bundle.js"></script>
 </body>
 
 </html>
